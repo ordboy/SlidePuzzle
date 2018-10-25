@@ -2,7 +2,7 @@
 
  */
 
-package slidepussle;
+package slidepuzzle;
 
 
 public class SlidePussle {
