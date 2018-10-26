@@ -14,11 +14,11 @@ public class Game {
     public ArrayList<SlideButtons> buttonList = new ArrayList();
     SlideButtons sb;
     public Game(){
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 16; i++) {
             buttonList.add(sb = new SlideButtons(i+"",i));
             
         }
-       
+       this.shuffleBoard();
     }
     
     public void shuffleBoard(){
