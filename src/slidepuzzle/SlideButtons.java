@@ -9,11 +9,11 @@ import javax.swing.JButton;
  *
  * @author stevi
  */
-public class SlideButtons extends JButton{
+public class SlideButtons {
     String name;
     int value;
     SlideButtons(String name,int value){
-        this.setSize(200, 200);
+//        this.setSize(100, 100);
         this.name = name;
         this.value = value;
     }
