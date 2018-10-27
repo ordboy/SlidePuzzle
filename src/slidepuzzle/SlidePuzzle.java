@@ -4,6 +4,7 @@
 package slidepuzzle;
 
 import java.awt.GridLayout;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,17 +21,20 @@ public class SlidePuzzle extends JFrame {
         JButton[] buttonArray = new JButton[16];
         ActionListener l = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("hej");
-
+                
+                getBounds((e.getSource()));
             }
         };
-        //Hämta sätt värde med buttonlist, kanske inte är nödvändigt? eller kanske behövs ändras tillbaka senare
+        
+        
         for (int i = 0; i < buttonArray.length - 1; i++) {
             buttonArray[i] = new JButton(game.buttonList.get(i).name);
             pane.add(buttonArray[i]);
             buttonArray[i].addActionListener(l);
         }
-        
+//        
+//        
+//        
         pane.setLayout(new GridLayout(4, 4));
 
         frame.setSize(500, 500);
