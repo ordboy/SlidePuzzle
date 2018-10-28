@@ -11,15 +11,19 @@ import javax.swing.JButton;
  * @author stevi
  */
 public class SlideButtons extends JButton {
-    String name;
+    String number;
     int value;
-//    String patt;
+    
     ImageIcon pic;
-    SlideButtons(String path,String number,int value){
-        this.pic =  new ImageIcon(path, number);
-//        patt = path;
+    
+    SlideButtons(ImageIcon pic,String number,int value){
+                
         this.setSize(150, 150);
-        //this.name = name;
+        this.number = number;
+        this.pic = pic;
         this.value = value;
+        this.setIcon(pic);
+        
+        
     }
 }
