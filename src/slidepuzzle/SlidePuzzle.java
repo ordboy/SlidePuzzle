@@ -12,31 +12,35 @@ import java.awt.event.ActionListener;
 import jdk.nashorn.internal.objects.NativeArray;
 
 public class SlidePuzzle extends JFrame {
-
+    
     SlidePuzzle() {
         JFrame frame = new JFrame();
         TilePile tp = new TilePile();
         JPanel pane = new JPanel();
         
-        JButton[] buttonArray = new JButton[16];
+        SlideButtons[] buttonArray = new SlideButtons[16];
+        
         
         ActionListener l = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                
+                    
                 SlideButtons x;
                 x = (SlideButtons)e.getSource();
-//                buttonArray[NativeArray.indexOf(self, searchElement, fromIndex)]
-//                vad är detta^^?
                 System.out.println(x.value);
                 
-                
+                if(tp.hasWon(buttonArray))
+                    System.out.println("vinst");
+               
+
             }
         };
         
         for (int i = 0; i < buttonArray.length-1; i++) {
             //tilverkar en slidebutton med hjälp av beskriving från Tile som ligger i buttonlist
             buttonArray[i] = new SlideButtons(tp.buttonList.get(i).img,tp.buttonList.get(i).name,tp.buttonList.get(i).value);
-//            tp.shuffleBoard();
+
             pane.add(buttonArray[i]);
             buttonArray[i].addActionListener(l);
         }
@@ -57,5 +61,6 @@ public class SlidePuzzle extends JFrame {
     public static void main(String[] args) {
         SlidePuzzle s = new SlidePuzzle();
     }
+   
 
 }
