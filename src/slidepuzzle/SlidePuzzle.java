@@ -14,20 +14,23 @@ public class SlidePuzzle extends JFrame {
 
     SlidePuzzle() {
         JFrame frame = new JFrame();
-        Game game = new Game();
+        TilePile tp = new TilePile();
         JPanel pane = new JPanel();
-
+        
         JButton[] buttonArray = new JButton[16];
         ActionListener l = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("hej");
-
+                SlideButtons x;
+                x = (SlideButtons)e.getSource();
+                
+                System.out.println(x.value);
             }
         };
-        //Hämta sätt värde med buttonlist, kanske inte är nödvändigt? eller kanske behövs ändras tillbaka senare
-        for (int i = 0; i < buttonArray.length - 1; i++) {
-            buttonArray[i] = new JButton(game.buttonList.get(i).name);
+        
+        for (int i = 0; i < buttonArray.length-1; i++) {
+            //tilverkar en slidebutton med hjälp av beskriving från Tile som ligger i buttonlist
+            buttonArray[i] = new SlideButtons(tp.buttonList.get(i).img,tp.buttonList.get(i).name,tp.buttonList.get(i).value);
             pane.add(buttonArray[i]);
             buttonArray[i].addActionListener(l);
         }
@@ -41,6 +44,7 @@ public class SlidePuzzle extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.add(pane);
         frame.setVisible(true);
+        frame.repaint();
         pack();
     }
 

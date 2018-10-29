@@ -3,6 +3,7 @@
  */
 package slidepuzzle;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /**
@@ -10,12 +11,19 @@ import javax.swing.JButton;
  * @author stevi
  */
 public class SlideButtons extends JButton {
-    String name;
+    String number;
     int value;
     
-    SlideButtons(String name,int value){
-        this.setSize(100, 100);
-        this.name = name;
+    ImageIcon pic;
+    
+    SlideButtons(ImageIcon pic,String number,int value){
+                
+        this.setSize(150, 150);
+        this.number = number;
+        this.pic = pic;
         this.value = value;
+        this.setIcon(pic);
+        
+        
     }
 }
