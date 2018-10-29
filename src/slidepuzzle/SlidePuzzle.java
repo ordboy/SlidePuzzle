@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
+import jdk.nashorn.internal.objects.NativeArray;
 
 public class SlidePuzzle extends JFrame {
 
@@ -18,26 +19,31 @@ public class SlidePuzzle extends JFrame {
         JPanel pane = new JPanel();
         
         JButton[] buttonArray = new JButton[16];
+        
         ActionListener l = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SlideButtons x;
                 x = (SlideButtons)e.getSource();
-                
+//                buttonArray[NativeArray.indexOf(self, searchElement, fromIndex)]
+//                vad är detta^^?
                 System.out.println(x.value);
+                
+                
             }
         };
         
         for (int i = 0; i < buttonArray.length-1; i++) {
             //tilverkar en slidebutton med hjälp av beskriving från Tile som ligger i buttonlist
             buttonArray[i] = new SlideButtons(tp.buttonList.get(i).img,tp.buttonList.get(i).name,tp.buttonList.get(i).value);
+//            tp.shuffleBoard();
             pane.add(buttonArray[i]);
             buttonArray[i].addActionListener(l);
         }
-        
+       
         pane.setLayout(new GridLayout(4, 4));
 
-        frame.setSize(500, 500);
+        frame.setSize(600, 600);
 
         frame.setLocation(1000, 50);
         frame.setVisible(true);

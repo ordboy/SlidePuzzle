@@ -30,10 +30,7 @@ public class TilePile {
         buttonList.add(tile = new Tile("src\\slidepuzzle\\pics\\Fourteen.png","Fourteen",14));
         buttonList.add(tile = new Tile("src\\slidepuzzle\\pics\\Fifteen.png","Fifteen",15));
         
-//        for (int i = 1; i < 16; i++) {
-//            buttonList.add(sb = new SlideButtons(i+"",i));
-//            
-//        }
+
        
        this.shuffleBoard();
     }
@@ -41,8 +38,8 @@ public class TilePile {
     public void shuffleBoard(){
            Collections.shuffle(buttonList);
        }
-    public boolean hasWon(){
-        //todo jämföra array
+    public boolean hasWon(SlideButtons[] a){
+        
        return true; 
     }
         
