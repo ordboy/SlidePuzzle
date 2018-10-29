@@ -3,28 +3,27 @@
  */
 package slidepuzzle;
 
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
 
 public class SlidePuzzle extends JFrame {
-
+    Rectangle temp;
+    JFrame frame = new JFrame();
+    TilePile tp = new TilePile();
+    JPanel pane = new JPanel();
+    JButton[] buttonArray = new JButton[16];
+    
     SlidePuzzle() {
-        JFrame frame = new JFrame();
-        TilePile tp = new TilePile();
-        JPanel pane = new JPanel();
         
-        JButton[] buttonArray = new JButton[16];
         ActionListener l = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SlideButtons x;
-                x = (SlideButtons)e.getSource();
-                
-                System.out.println(x.value);
+                for (int i = 0; i < buttonArray.length; i++) {
+                    if(e.getSource().equals(buttonArray[i])){
+                        tp.swapButton(buttonArray[15], buttonArray[i]);
+                    }
+                }
             }
         };
         
@@ -35,10 +34,10 @@ public class SlidePuzzle extends JFrame {
             buttonArray[i].addActionListener(l);
         }
         
+        pane.add(buttonArray[15] = new SlideButtons());
+        
         pane.setLayout(new GridLayout(4, 4));
-
         frame.setSize(500, 500);
-
         frame.setLocation(1000, 50);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -50,6 +49,5 @@ public class SlidePuzzle extends JFrame {
 
     public static void main(String[] args) {
         SlidePuzzle s = new SlidePuzzle();
-    }
-
+    }    
 }

@@ -13,17 +13,16 @@ import javax.swing.JButton;
 public class SlideButtons extends JButton {
     String number;
     int value;
-    
     ImageIcon pic;
     
-    SlideButtons(ImageIcon pic,String number,int value){
+    public SlideButtons(){}
+    
+    public SlideButtons(ImageIcon pic,String number,int value){
                 
         this.setSize(150, 150);
         this.number = number;
         this.pic = pic;
         this.value = value;
         this.setIcon(pic);
-        
-        
-    }
+    }    
 }

@@ -1,10 +1,8 @@
-/*
-
- */
 package slidepuzzle;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.awt.*;
+import java.util.*;
+import javax.swing.*;
 
 /**
  *
@@ -13,6 +11,7 @@ import java.util.Collections;
 public class TilePile {
     public ArrayList<Tile> buttonList = new ArrayList();
     Tile tile;
+    
     public TilePile(){
         buttonList.add(tile = new Tile("src\\slidepuzzle\\pics\\One.png","One",1));
         buttonList.add(tile = new Tile("src\\slidepuzzle\\pics\\Two.png","Two",2));
@@ -41,6 +40,19 @@ public class TilePile {
     public void shuffleBoard(){
            Collections.shuffle(buttonList);
        }
+    
+    public void swapButton(JButton b1, JButton b2){
+        Rectangle temp;
+        if(b1.getX() == b2.getX() &&
+           Math.abs(b1.getY() - b2.getY()) <= 115 ||
+           b1.getY() == b2.getY() &&
+           Math.abs(b1.getX() - b2.getX()) <= 121){
+            temp = b2.getBounds();
+            b2.setBounds(b1.getBounds());
+            b1.setBounds(temp);
+        }
+    }
+    
     public boolean hasWon(){
         //todo jämföra array
        return true; 
