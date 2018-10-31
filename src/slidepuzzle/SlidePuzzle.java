@@ -12,7 +12,7 @@ public class SlidePuzzle extends JFrame {
     JFrame frame = new JFrame();
     TilePile tp = new TilePile();
     JPanel pane = new JPanel();
-    JButton[] buttonArray = new JButton[16];
+    SlideButtons [] buttonArray = new SlideButtons[16];
     
     SlidePuzzle() {
         
@@ -24,6 +24,8 @@ public class SlidePuzzle extends JFrame {
                         tp.swapButton(buttonArray[15], buttonArray[i]);
                     }
                 }
+                if(tp.hasWon(buttonArray))
+                    System.out.println("Vinst");
             }
         };
         

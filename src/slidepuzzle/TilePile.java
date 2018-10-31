@@ -48,8 +48,13 @@ public class TilePile {
         }
     }
     
-    public boolean hasWon(){
-        //todo jämföra array
+    public boolean hasWon(SlideButtons[] a){
+                for (int i = 0; i < a.length - 1; i++) {
+            
+            System.out.println(a[i].value +" "+ (i+1));
+            if (a[i].value != (i+1)) 
+                return false;       
+        }
        return true; 
     }
         
