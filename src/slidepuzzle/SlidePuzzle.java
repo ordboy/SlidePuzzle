@@ -29,7 +29,7 @@ public class SlidePuzzle extends JFrame {
                 SlideButtons temp;
                 SlideButtons x = (SlideButtons) e.getSource();
                 
-                //new game funktonen
+                //new game funktionen
                 if(x == newGame){
                     tp.shuffleArray(buttonArray, index);
                     tp.addButtonsToBord(buttonArray, pane);
