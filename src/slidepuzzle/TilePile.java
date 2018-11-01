@@ -55,5 +55,20 @@ public class TilePile {
         }
        return true; 
     }
+    
+    public void addButtonsToBord(SlideButtons[] sb, JPanel p){
+        for (int i = 0; i < sb.length; i++) {
+            p.add(sb[i]);
+        }
+    }
         
+    public void shuffleArray(SlideButtons[] sb, int index){
+        Random rnd = new Random();
+        for (int i = sb.length - 1; i > 0; i--) {
+            index = rnd.nextInt(sb.length-1);
+            SlideButtons a = sb[index];
+            sb[index] = sb[i];
+            sb[i] = a;
+        }      
+    }
 }

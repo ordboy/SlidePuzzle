@@ -34,17 +34,8 @@ public class SlidePuzzle extends JFrame {
                 
                 //new game funktonen
                 if(x==newGame){
-                     Random rnd = new Random();
-                    for (int i = buttonArray.length - 1; i > 0; i--) {
-                    index = rnd.nextInt(buttonArray.length-1);
-                    SlideButtons a = buttonArray[index];
-                    buttonArray[index] = buttonArray[i];
-                    buttonArray[i] = a;             
-                    
-                    }
-                    for (int i = 0; i < buttonArray.length; i++) {
-                        pane.add(buttonArray[i]);
-                    }
+                    tp.shuffleArray(buttonArray, index);
+                    tp.addButtonsToBord(buttonArray, pane);
                     pane3.setVisible(false);
                     pane.setVisible(true);
                     pane.revalidate();
