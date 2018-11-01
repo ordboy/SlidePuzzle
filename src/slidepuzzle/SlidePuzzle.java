@@ -16,8 +16,7 @@ public class SlidePuzzle extends JFrame {
     JPanel pane = new JPanel();
     JPanel pane2 = new JPanel();
     JPanel pane3 = new JPanel();
-    JLabel winMessage = new JLabel(new ImageIcon("C:\\Users\\albin\\Documents\\NetBeansProjects\\"
-            + "SlidePussle\\src\\slidepuzzle\\pics\\vinst.jpg"));
+    JLabel winMessage = new JLabel(new ImageIcon("src\\slidepuzzle\\pics\\vinst.jpg"));
     
     SlideButtons[] buttonArray = new SlideButtons[16];
     SlideButtons newGame = new SlideButtons("New Game");
@@ -84,8 +83,7 @@ public class SlidePuzzle extends JFrame {
             }
         };
         tp.getArray(buttonArray);
-        for (int i = 0; i < buttonArray.length - 1; i++) {
-            //tilverkar en slidebutton med hjälp av beskriving från Tile som ligger i buttonlist            
+        for (int i = 0; i < buttonArray.length - 1; i++) {                        
             pane.add(buttonArray[i]);
             buttonArray[i].addActionListener(l);
         }
