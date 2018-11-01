@@ -16,8 +16,7 @@ public class SlidePuzzle extends JFrame {
     JPanel pane = new JPanel();
     JPanel pane2 = new JPanel();
     JPanel pane3 = new JPanel();
-    JLabel winMessage = new JLabel(new ImageIcon("C:\\Users\\stevi\\Documents\\NetBeansProjects\\"
-            + "JavaApplication96\\SlidePuzzle\\src\\slidepuzzle\\pics\\vinst.jpg"));
+    JLabel winMessage = new JLabel(new ImageIcon("src\\slidepuzzle\\pics\\vinst.jpg"));
     
     SlideButtons[] buttonArray = new SlideButtons[16];
     SlideButtons newGame = new SlideButtons("New Game");

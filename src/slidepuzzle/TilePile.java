@@ -35,7 +35,7 @@ public class TilePile {
     }
     
     public void shuffleBoard(){
-           Collections.shuffle(buttonList);
+//           Collections.shuffle(buttonList);
        }
     
     public SlideButtons[] getArray(SlideButtons[] a){
