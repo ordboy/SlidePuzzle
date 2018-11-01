@@ -26,7 +26,6 @@ public class SlidePuzzle extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 int index = 0;
                 int nullIndex = 0;
-                SlideButtons temp;
                 SlideButtons x = (SlideButtons) e.getSource();
                 
                 //new game funktionen
