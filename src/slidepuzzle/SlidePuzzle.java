@@ -19,11 +19,34 @@ public class SlidePuzzle extends JFrame {
         ActionListener l = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+               
+                int index=0;
+                int nullIndex=0;
+                SlideButtons temp;
+               SlideButtons x =(SlideButtons) e.getSource();
                 for (int i = 0; i < buttonArray.length; i++) {
-                    if(e.getSource().equals(buttonArray[i])){
-                        tp.swapButton(buttonArray[15], buttonArray[i]);
-                    }
+                    
+                    if(x.value == buttonArray[i].value)
+                        index= i;
+                    
+                    if(buttonArray[i].value ==0)
+                        nullIndex = i;
                 }
+                
+                if((index-nullIndex)==1 || (index-nullIndex)==4 || (index-nullIndex)==-4 || (index-nullIndex)==-1) {
+                    temp = buttonArray[index];
+                    buttonArray[index] = buttonArray[nullIndex];
+                    buttonArray[nullIndex]=temp;
+                    
+                    for (int i = 0; i < buttonArray.length; i++) {
+                        pane.add(buttonArray[i]);
+                    }
+                    pane.revalidate();
+                    pane.repaint();
+                }
+           
+            
+              
                 if(tp.hasWon(buttonArray))
                     System.out.println("Vinst");
             }

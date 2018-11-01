@@ -28,7 +28,7 @@ public class TilePile {
         buttonList.add(tile = new Tile("src\\slidepuzzle\\pics\\Thirteen.png","Thirteen",13));
         buttonList.add(tile = new Tile("src\\slidepuzzle\\pics\\Fourteen.png","Fourteen",14));
         buttonList.add(tile = new Tile("src\\slidepuzzle\\pics\\Fifteen.png","Fifteen",15));
-       
+        
        this.shuffleBoard();
     }
     
@@ -36,16 +36,11 @@ public class TilePile {
            Collections.shuffle(buttonList);
        }
     
-    public void swapButton(JButton b1, JButton b2){
-        Rectangle temp;
-        if(b1.getX() == b2.getX() &&
-           Math.abs(b1.getY() - b2.getY()) <= 115 ||
-           b1.getY() == b2.getY() &&
-           Math.abs(b1.getX() - b2.getX()) <= 121){
-            temp = b2.getBounds();
-            b2.setBounds(b1.getBounds());
-            b1.setBounds(temp);
+    public void swapButton(SlideButtons[] a, SlideButtons b){
+        if(a==(null)){
+            
         }
+        
     }
     
     public boolean hasWon(SlideButtons[] a){

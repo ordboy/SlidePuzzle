@@ -12,7 +12,7 @@ import javax.swing.JButton;
  */
 public class SlideButtons extends JButton {
     String number;
-    int value;
+    int value = 0;
     ImageIcon pic;
     
     public SlideButtons(){}
