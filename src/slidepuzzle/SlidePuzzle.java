@@ -28,6 +28,23 @@ public class SlidePuzzle extends JFrame {
                 int nullIndex = 0;
                 SlideButtons temp;
                 SlideButtons x = (SlideButtons) e.getSource();
+                if(x==newGame){
+                     Random rnd = new Random();
+                    for (int i = buttonArray.length - 1; i > 0; i--) {
+                    index = rnd.nextInt(buttonArray.length-1);
+                    SlideButtons a = buttonArray[index];
+                    buttonArray[index] = buttonArray[i];
+                    buttonArray[i] = a;              
+                    
+                    
+                    }
+                    for (int i = 0; i < buttonArray.length; i++) {
+                        pane.add(buttonArray[i]);
+                    }
+                    pane.revalidate();
+                    pane.repaint();
+                }
+                
                 for (int i = 0; i < buttonArray.length; i++) {
                     if (x.value == buttonArray[i].value) {
                         index = i;
@@ -63,16 +80,8 @@ public class SlidePuzzle extends JFrame {
             buttonArray[i].addActionListener(l);
         }
 
-        newGame.addActionListener(list -> {
-        Random rnd = new Random();
-        for (int i = buttonArray.length - 1; i > 0; i--) {
-            int index = rnd.nextInt(buttonArray.length-1);
-            SlideButtons a = buttonArray[index];
-            buttonArray[index] = buttonArray[i];
-            buttonArray[i] = a;
-        }
-    });
-
+     
+    newGame.addActionListener(l);
     pane2.add (newGame);
     pane.add (buttonArray[15] = new SlideButtons());
     frame.setLayout (new BorderLayout());
