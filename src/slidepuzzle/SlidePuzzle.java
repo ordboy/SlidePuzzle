@@ -84,8 +84,7 @@ public class SlidePuzzle extends JFrame {
             }
         };
         tp.getArray(buttonArray);
-        for (int i = 0; i < buttonArray.length - 1; i++) {
-            //tilverkar en slidebutton med hjälp av beskriving från Tile som ligger i buttonlist            
+        for (int i = 0; i < buttonArray.length - 1; i++) {                        
             pane.add(buttonArray[i]);
             buttonArray[i].addActionListener(l);
         }
