@@ -17,6 +17,10 @@ public class SlideButtons extends JButton {
     
     public SlideButtons(){}
     
+    public SlideButtons(String text){
+        this.setText(text);
+    }
+    
     public SlideButtons(ImageIcon pic,String number,int value){
                 
         this.setSize(150, 150);
