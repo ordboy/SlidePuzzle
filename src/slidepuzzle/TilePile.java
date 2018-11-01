@@ -36,10 +36,12 @@ public class TilePile {
            Collections.shuffle(buttonList);
        }
     
-    public void swapButton(SlideButtons[] a, SlideButtons b){
-        if(a==(null)){
-            
+    public SlideButtons[] getArray(SlideButtons[] a){
+        for (int i = 0; i < a.length-1; i++) {
+            a[i] = new SlideButtons(this.buttonList.get(i).img,this.buttonList.get(i).name,this.buttonList.get(i).value);
         }
+            return a;
+        
         
     }
     

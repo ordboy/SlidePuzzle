@@ -51,10 +51,9 @@ public class SlidePuzzle extends JFrame {
                     System.out.println("Vinst");
             }
         };
-        
+        tp.getArray(buttonArray);
         for (int i = 0; i < buttonArray.length-1; i++) {
-            //tilverkar en slidebutton med hjälp av beskriving från Tile som ligger i buttonlist
-            buttonArray[i] = new SlideButtons(tp.buttonList.get(i).img,tp.buttonList.get(i).name,tp.buttonList.get(i).value);
+            //tilverkar en slidebutton med hjälp av beskriving från Tile som ligger i buttonlist            
             pane.add(buttonArray[i]);
             buttonArray[i].addActionListener(l);
         }
