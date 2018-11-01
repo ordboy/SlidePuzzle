@@ -10,14 +10,12 @@ import java.util.Random;
 
 public class SlidePuzzle extends JFrame {
 
-    Rectangle temp;
     JFrame frame = new JFrame();
     TilePile tp = new TilePile();
     JPanel pane = new JPanel();
     JPanel pane2 = new JPanel();
     JPanel pane3 = new JPanel();
     JLabel winMessage = new JLabel(new ImageIcon("src\\slidepuzzle\\pics\\vinst.jpg"));
-    
     SlideButtons[] buttonArray = new SlideButtons[16];
     SlideButtons newGame = new SlideButtons("New Game");
 
@@ -32,7 +30,7 @@ public class SlidePuzzle extends JFrame {
                 SlideButtons x = (SlideButtons) e.getSource();
                 
                 //new game funktonen
-                if(x==newGame){
+                if(x == newGame){
                     tp.shuffleArray(buttonArray, index);
                     tp.addButtonsToBord(buttonArray, pane);
                     pane3.setVisible(false);
@@ -51,16 +49,9 @@ public class SlidePuzzle extends JFrame {
                     }
                 }
                 //swap-funktionen2
-                if ((index != 3 && index != 7 && index != 11 && index != 15) && (index - nullIndex) == -1
-                        || (index - nullIndex) == 4 || (index - nullIndex) == -4
-                        || (index != 0 && index != 4 && index != 8 && index != 12) && (index - nullIndex) == 1) {
-                    temp = buttonArray[index];
-                    buttonArray[index] = buttonArray[nullIndex];
-                    buttonArray[nullIndex] = temp;
-
-                    for (int i = 0; i < buttonArray.length; i++) {
-                        pane.add(buttonArray[i]);
-                    }
+                if (tp.isNextToEmptyButton(index, nullIndex)) {
+                    tp.swapButtons(buttonArray, index, nullIndex);
+                    tp.addButtonsToBord(buttonArray, pane);
                     pane.revalidate();
                     pane.repaint();
                 }

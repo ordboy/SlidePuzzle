@@ -4,12 +4,8 @@ import java.awt.*;
 import java.util.*;
 import javax.swing.*;
 
-/**
- *
- * @author stevi
- */
 public class TilePile {
-    public ArrayList<Tile> buttonList = new ArrayList();
+    public ArrayList<Tile> buttonList = new ArrayList<Tile>();
     Tile tile;
     
     public TilePile(){
@@ -47,21 +43,15 @@ public class TilePile {
     }
     
     public boolean hasWon(SlideButtons[] a){
-                for (int i = 0; i < a.length - 1; i++) {
-            
+        for (int i = 0; i < a.length - 1; i++) {
             System.out.println(a[i].value +" "+ (i+1));
-            if (a[i].value != (i+1)) 
-                return false;       
+            if (a[i].value != (i+1)){
+                return false;
+            }     
         }
        return true; 
     }
     
-    public void addButtonsToBord(SlideButtons[] sb, JPanel p){
-        for (int i = 0; i < sb.length; i++) {
-            p.add(sb[i]);
-        }
-    }
-        
     public void shuffleArray(SlideButtons[] sb, int index){
         Random rnd = new Random();
         for (int i = sb.length - 1; i > 0; i--) {
@@ -70,5 +60,29 @@ public class TilePile {
             sb[index] = sb[i];
             sb[i] = a;
         }      
+    }
+    
+    public void addButtonsToBord(SlideButtons[] sb, JPanel p){
+        for (int i = 0; i < sb.length; i++) {
+            p.add(sb[i]);
+        }
+    }
+    
+    //Checks if clicked button is close to empty button
+    public boolean isNextToEmptyButton(int index, int nullIndex){
+        if((index != 3 && index != 7 && index != 11 && index != 15) && (index - nullIndex) == -1 ||
+           (index - nullIndex) == 4 || (index - nullIndex) == -4 ||
+           (index != 0 && index != 4 && index != 8 && index != 12) && (index - nullIndex) == 1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    public void swapButtons(SlideButtons[] sb, int index1, int index2){
+        SlideButtons temp = sb[index1];
+        sb[index1] = sb[index2];
+        sb[index2] = temp;
     }
 }
