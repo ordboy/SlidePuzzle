@@ -26,7 +26,6 @@ public class SlidePuzzle extends JFrame {
         ActionListener l = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 int index = 0;
                 int nullIndex = 0;
                 SlideButtons temp;
@@ -81,7 +80,6 @@ public class SlidePuzzle extends JFrame {
 
 //  
     pane3.setSize(700, 700);
-    
     pane3.setLayout(new BorderLayout());
     pane3.add(winMessage);
     newGame.addActionListener(l);
@@ -91,11 +89,10 @@ public class SlidePuzzle extends JFrame {
     pane.setLayout (new GridLayout(4, 4));
     pane3.setVisible(false);
     
-    
     frame.setSize (700, 700);
     frame.setLocation (1000, 50);
     frame.setVisible (true);
-    frame.setDefaultCloseOperation (EXIT_ON_CLOSE);
+    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     frame.add(pane2, BorderLayout.NORTH);
     frame.add(pane3, BorderLayout.CENTER);
     frame.add(pane, BorderLayout.CENTER);
