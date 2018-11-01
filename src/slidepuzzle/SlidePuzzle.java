@@ -33,7 +33,9 @@ public class SlidePuzzle extends JFrame {
                         nullIndex = i;
                 }
                 
-                if((index-nullIndex)==1 || (index-nullIndex)==4 || (index-nullIndex)==-4 || (index-nullIndex)==-1) {
+                if((index != 3 && index != 7 && index != 11 && index != 15) &&(index-nullIndex) == -1 
+                        || (index-nullIndex)==4 || (index-nullIndex)==-4 || 
+                   (index != 0 && index != 4 && index != 8 && index != 12 )&&(index-nullIndex) == 1) {
                     temp = buttonArray[index];
                     buttonArray[index] = buttonArray[nullIndex];
                     buttonArray[nullIndex]=temp;
